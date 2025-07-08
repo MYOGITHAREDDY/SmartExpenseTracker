@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Expense Tracker - Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/amazon-cognito-identity-js@6.3.4/dist/amazon-cognito-identity.min.js"></script>
+    <script src="dashboard.js" defer></script>
+    <script src="charts.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Smart Expense Tracker</h1>
+        
+        <button id="logoutBtn">Logout</button>
+    </header>
+
+    <main class="container">
+        <section class="filter-section card">
+            <h2>Filter Expenses</h2>
+            <div class="filter-controls">
+                <label for="monthFilter">Month:</label>
+                <select id="monthFilter">
+                    <option value="">All Months</option>
+                    <option value="01">January</option>
+                    <option value="02">February</option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+
+                <label for="yearFilter">Year:</label>
+                <select id="yearFilter">
+                    <option value="">All Years</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                </select>
+                <button id="applyFilter">Apply Filter</button>
+            </div>
+        </section>
+
+        <div class="card expense-summary">
+            <h2>Total Expenses</h2>
+            <p id="total-expenses"></p>
+        </div>
+
+        <div class="card add-expense">
+            <h2>Add Expense</h2>
+            <form id="expenseForm">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Expense Name" required>
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" placeholder="Amount" step="0.01" required>
+                <label for="date">Date</label>
+                <input type="date" id="date" placeholder="Date" required>
+                <label for="category">Category</label>
+                <select id="category" required>
+                    <option value="">Choose category</option>
+                    <option value="Food">Food</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Shopping">Rent</option>
+                    <option value="Bills">Bills</option>
+                    <option value="Shopping">Entertainment</option>
+                    <option value="Other">Other</option>
+                </select>
+                <button type="submit">Add Expense</button>
+            </form>
+        </div>
+
+        <div class="charts">
+            <div class="chart-container">
+                <h2>Category</h2>
+                <canvas id="pie-chart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h2>Expense Trend</h2>
+                <canvas id="bar-chart"></canvas>
+            </div>
+        </div>
+
+        <div class="expense-table card">
+            <h2>Expenses List</h2>
+            <table id="expenseTable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Notes</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="expensesTableBody">
+                    <tr>
+                        <td>2024-04-15</td>
+                        <td>Food</td>
+                        <td>$50.00</td>
+                        <td>Groceries</td>
+                        <td><button class="delete-btn">Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td>2024-04-14</td>
+                        <td>Travel</td>
+                        <td>$200.00</td>
+                        <td>Flight</td>
+                        <td><button class="delete-btn">Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td>2024-04-10</td>
+                        <td>Rent</td>
+                        <td>$1,000.00</td>
+                        <td>Monthly Payment</td>
+                        <td><button class="delete-btn">Delete</button></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+        <div class="floating-button">
+            +
+        </div>
+</body>
+</html>
