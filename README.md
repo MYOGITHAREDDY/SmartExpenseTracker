@@ -17,3 +17,18 @@ A secure, AWS-based financial tracking application with a modern frontend.
 - Secure data handling using IAM roles
 
 ## 📁 Folder Structure
+SmartExpenseTracker/
+├── index.html
+├── login.html
+├── signup.html
+├── dashboard.html
+├── confirm.html
+├── styles.css
+├── login.css
+├── dashboard.css
+├── login.js
+├── signup.js
+├── dashboard.js
+├── confirm.js
+├── charts.js
+├── README.md
